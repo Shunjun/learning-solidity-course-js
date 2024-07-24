@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/mocks/MockV3Interface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract MockV3Aggregator {\n    int256 private _latestAnswer;\n    uint256 private _latestTimestamp;\n    uint256 private _latestRound;\n\n    event AnswerUpdated(\n        int256 indexed current,\n        uint256 indexed roundId,\n        uint256 updatedAt\n    );\n\n    constructor(int256 initialAnswer) {\n        _latestAnswer = initialAnswer;\n        _latestTimestamp = block.timestamp;\n        _latestRound = 1;\n    }\n\n    function latestAnswer() external view returns (int256) {\n        return _latestAnswer;\n    }\n\n    function latestTimestamp() external view returns (uint256) {\n        return _latestTimestamp;\n    }\n\n    function latestRound() external view returns (uint256) {\n        return _latestRound;\n    }\n\n    function updateAnswer(int256 newAnswer) external {\n        _latestAnswer = newAnswer;\n        _latestTimestamp = block.timestamp;\n        _latestRound++;\n        emit AnswerUpdated(newAnswer, _latestRound, _latestTimestamp);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
