@@ -1,0 +1,75 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-simple-storage-fcc/contracts/Lock.sol": {
+      "lastModificationDate": 1721229075936,
+      "contentHash": "bc6f0bec04e067f4f3fb8a110d5cb6ec",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    },
+    "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-simple-storage-fcc/contracts/SimpleStorage.sol": {
+      "lastModificationDate": 1721229038560,
+      "contentHash": "07ba9d713ba6dc010d3c510fe95c05ec",
+      "sourceName": "contracts/SimpleStorage.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.8"
+      ],
+      "artifacts": [
+        "SimpleStorage"
+      ]
+    }
+  }
+}
