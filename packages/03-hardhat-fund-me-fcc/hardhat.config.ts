@@ -13,31 +13,31 @@ const SOPOLIA_RPC_URL = process.env.SOPOLIA_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY || ""
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.8",
-    defaultNetwork: "hardhat",
-    networks: {
-        hardhat: {
-            chainId: 31337,
-            // gasPrice: 130000000000,
-        },
-        sepolia: {
-            url: SOPOLIA_RPC_URL,
-            accounts: [PRIVATE_KEY],
-            chainId: 11155111,
-        },
+  solidity: "0.8.8",
+  defaultNetwork: "hardhat",
+  networks: {
+    hardhat: {
+      chainId: 31337,
+      // gasPrice: 130000000000,
     },
-    gasReporter: {
-        enabled: !!process.env.REPORT_GAS,
-        currency: "USD",
+    sepolia: {
+      url: SOPOLIA_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 11155111,
     },
-    etherscan: {
-        apiKey: ehterscanApiKey,
+  },
+  gasReporter: {
+    enabled: !!process.env.REPORT_GAS,
+    currency: "USD",
+  },
+  etherscan: {
+    apiKey: ehterscanApiKey,
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
     },
-    namedAccounts: {
-        deployer: {
-            default: 0,
-        },
-    },
+  },
 }
 
 export default config
