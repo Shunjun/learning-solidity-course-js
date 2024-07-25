@@ -25,9 +25,7 @@
                 "storageLayout",
                 "evm.gasEstimates"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           },
           "metadata": {
@@ -39,12 +37,8 @@
         "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol",
         "./PriceConverter.sol"
       ],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "FundMe"
-      ]
+      "versionPragmas": ["^0.8.8"],
+      "artifacts": ["FundMe"]
     },
     "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-fund-me-fcc/contracts/PriceConverter.sol": {
       "lastModificationDate": 1721410355303,
@@ -70,9 +64,7 @@
                 "storageLayout",
                 "evm.gasEstimates"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           },
           "metadata": {
@@ -83,12 +75,8 @@
       "imports": [
         "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol"
       ],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "PriceConverter"
-      ]
+      "versionPragmas": ["^0.8.8"],
+      "artifacts": ["PriceConverter"]
     },
     "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-fund-me-fcc/node_modules/.pnpm/@chainlink+contracts@1.1.1_ethers@6.13.1/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
       "lastModificationDate": 1721325168243,
@@ -114,9 +102,7 @@
                 "storageLayout",
                 "evm.gasEstimates"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           },
           "metadata": {
@@ -125,12 +111,8 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AggregatorV3Interface"
-      ]
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["AggregatorV3Interface"]
     },
     "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-fund-me-fcc/contracts/mocks/MockV3Interface.sol": {
       "lastModificationDate": 1721412239103,
@@ -156,9 +138,7 @@
                 "storageLayout",
                 "evm.gasEstimates"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           },
           "metadata": {
@@ -167,12 +147,8 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "MockV3Aggregator"
-      ]
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["MockV3Aggregator"]
     }
   }
 }

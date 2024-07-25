@@ -1,12 +1,12 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("dotenv").config();
-require("@nomicfoundation/hardhat-verify");
-require("./tasks/block-number");
-require("hardhat-gas-reporter");
+require("@nomicfoundation/hardhat-toolbox")
+require("dotenv").config()
+require("@nomicfoundation/hardhat-verify")
+require("./tasks/block-number")
+require("hardhat-gas-reporter")
 
-const ganacheUrl = process.env.GANACHE_URL;
-const ganachePriviteKey = process.env.GANACHE_PRIVATE_KEY;
-const ehterscanApiKey = process.env.EHTERSCAN_API_KEY;
+const ganacheUrl = process.env.GANACHE_URL
+const ganachePriviteKey = process.env.GANACHE_PRIVATE_KEY
+const ehterscanApiKey = process.env.EHTERSCAN_API_KEY
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -25,4 +25,4 @@ module.exports = {
   gasReporter: {
     enabled: true,
   },
-};
+}

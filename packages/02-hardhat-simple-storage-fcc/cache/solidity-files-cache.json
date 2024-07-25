@@ -21,20 +21,14 @@
                 "evm.methodIdentifiers",
                 "metadata"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           }
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "Lock"
-      ]
+      "versionPragmas": ["^0.8.8"],
+      "artifacts": ["Lock"]
     },
     "/Users/zhangshunjun/ProgrammerGrowing/web3.0/hh-fcc/hardhat-simple-storage-fcc/contracts/SimpleStorage.sol": {
       "lastModificationDate": 1721229038560,
@@ -56,20 +50,14 @@
                 "evm.methodIdentifiers",
                 "metadata"
               ],
-              "": [
-                "ast"
-              ]
+              "": ["ast"]
             }
           }
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "0.8.8"
-      ],
-      "artifacts": [
-        "SimpleStorage"
-      ]
+      "versionPragmas": ["0.8.8"],
+      "artifacts": ["SimpleStorage"]
     }
   }
 }
