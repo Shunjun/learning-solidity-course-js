@@ -1,9 +1,11 @@
-import type { HardhatUserConfig } from "hardhat/config"
-import "@nomicfoundation/hardhat-ethers"
+import { HardhatUserConfig } from "hardhat/config"
+import "@nomicfoundation/hardhat-toolbox"
+// import "@nomicfoundation/hardhat-ethers"
 import "hardhat-deploy"
-import "hardhat-deploy-ethers"
-import "hardhat-gas-reporter"
-import "@nomicfoundation/hardhat-verify"
+// import "hardhat-gas-reporter"
+// import "@nomicfoundation/hardhat-verify"
+// import "@typechain/hardhat"
+// import "@nomiclabs/hardhat-waffle"
 
 import { config as dotConfig } from "dotenv"
 

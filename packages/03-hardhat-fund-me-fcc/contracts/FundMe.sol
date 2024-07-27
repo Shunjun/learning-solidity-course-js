@@ -10,27 +10,47 @@ contract FundMe {
     using PriceConverter for uint256;
 
     mapping(address => uint256) public addressToAmountFunded;
-    address[] public funders;
+    address[] public s_funders;
 
     // Could we make this constant?  /* hint: no! We should make it immutable! */
     address public immutable i_owner;
     uint256 public constant MINIMUM_USD = 50 * 10 ** 18;
 
-    AggregatorV3Interface preceFeed;
+    AggregatorV3Interface priceFeed;
 
     constructor(address priceFeedAddress) {
         i_owner = msg.sender;
-        preceFeed = AggregatorV3Interface(priceFeedAddress);
+        priceFeed = AggregatorV3Interface(priceFeedAddress);
+    }
+
+    // Explainer from: https://solidity-by-example.org/fallback/
+    // Ether is sent to contract
+    //      is msg.data empty?
+    //          /   \
+    //         yes  no
+    //         /     \
+    //    receive()?  fallback()
+    //     /   \
+    //   yes   no
+    //  /        \
+    //receive()  fallback()
+
+    fallback() external payable {
+        fund();
+    }
+
+    receive() external payable {
+        fund();
     }
 
     function fund() public payable {
         require(
-            msg.value.getConversionRate(preceFeed) >= MINIMUM_USD,
+            msg.value.getConversionRate(priceFeed) >= MINIMUM_USD,
             "You need to spend more ETH!"
         );
         // require(PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD, "You need to spend more ETH!");
         addressToAmountFunded[msg.sender] += msg.value;
-        funders.push(msg.sender);
+        s_funders.push(msg.sender);
     }
 
     modifier onlyOwner() {
@@ -40,6 +60,7 @@ contract FundMe {
     }
 
     function withdraw() public onlyOwner {
+        address[] memory funders = s_funders;
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
@@ -60,23 +81,18 @@ contract FundMe {
         }("");
         require(callSuccess, "Call failed");
     }
-    // Explainer from: https://solidity-by-example.org/fallback/
-    // Ether is sent to contract
-    //      is msg.data empty?
-    //          /   \
-    //         yes  no
-    //         /     \
-    //    receive()?  fallback()
-    //     /   \
-    //   yes   no
-    //  /        \
-    //receive()  fallback()
 
-    fallback() external payable {
-        fund();
+    function getOwner() public view returns (address) {
+        return i_owner;
     }
 
-    receive() external payable {
-        fund();
+    function getPriceFeed() public view returns (address) {
+        return address(priceFeed);
+    }
+
+    function getAddressToAmountFunded(
+        address funder
+    ) public view returns (uint256) {
+        return addressToAmountFunded[funder];
     }
 }

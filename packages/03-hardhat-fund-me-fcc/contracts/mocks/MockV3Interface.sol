@@ -18,6 +18,10 @@ contract MockV3Aggregator {
         _latestRound = 1;
     }
 
+    fallback() external payable {}
+
+    receive() external payable {}
+
     function latestAnswer() external view returns (int256) {
         return _latestAnswer;
     }

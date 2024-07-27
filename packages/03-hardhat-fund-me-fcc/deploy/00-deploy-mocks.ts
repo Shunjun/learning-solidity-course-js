@@ -1,16 +1,13 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 import { DeployFunction } from "hardhat-deploy/types"
 import { network } from "hardhat"
-import { networkConfig, developmentChains } from "../helper-hardhat-config"
+import { developmentChains } from "../helper-hardhat-config"
 
 const INITIAL_PRICE = 200000000000
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { getNamedAccounts, deployments } = hre
   const { deploy, log } = deployments
   const { deployer } = await getNamedAccounts()
-  const chainId = network.config.chainId || 0
-
-  console.log(chainId)
 
   if (developmentChains.includes(network.name)) {
     log("deploying mocks on development network")
@@ -32,6 +29,6 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   }
 }
 
-export const tags = ["mocks", "all"]
+func.tags = ["mocks", "all"]
 
 export default func
