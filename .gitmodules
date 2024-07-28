@@ -7,3 +7,6 @@
 [submodule "packages/05-foundry-fund-me-cu/lib/forge-std"]
 	path = packages/05-foundry-fund-me-cu/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "packages/07-foundry-smart-contract-lottery-cu/lib/forge-std"]
+	path = packages/07-foundry-smart-contract-lottery-cu/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
