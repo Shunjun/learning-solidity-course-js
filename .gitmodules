@@ -1,0 +1,9 @@
+[submodule "packages/05-foundry-fund-me-cu/lib/chainlink-brownie-contracts"]
+	path = packages/05-foundry-fund-me-cu/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "packages/05-foundry-fund-me-cu/lib/foundry-devops"]
+	path = packages/05-foundry-fund-me-cu/lib/foundry-devops
+	url = https://github.com/Cyfrin/foundry-devops
+[submodule "packages/05-foundry-fund-me-cu/lib/forge-std"]
+	path = packages/05-foundry-fund-me-cu/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
