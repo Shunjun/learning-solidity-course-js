@@ -24,8 +24,14 @@ pragma solidity ^0.8.18;
 
 import {VRFConsumerBaseV2Plus} from "@chainlink/contracts/src/v0.8/vrf/dev/VRFConsumerBaseV2Plus.sol";
 import {VRFV2PlusClient} from "@chainlink/contracts/src/v0.8/vrf/dev/libraries/VRFV2PlusClient.sol";
+import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol";
+import {AutomationCompatible} from "@chainlink/contracts/src/v0.8/AutomationCompatible.sol";
 
-contract Raffle is VRFConsumerBaseV2Plus {
+contract Raffle is
+    VRFConsumerBaseV2Plus,
+    AutomationCompatibleInterface,
+    AutomationCompatible
+{
     error Raffle__NotEnoughTthSent();
     error Raffle__RaffleNotOpen();
     error Raffle__TransferFailed();
@@ -93,10 +99,27 @@ contract Raffle is VRFConsumerBaseV2Plus {
         emit RaffleEnter(msg.sender);
     }
 
-    function pickWindner() external {
+    function checkUpkeep(
+        bytes memory
+    )
+        public
+        view
+        override
+        cannotExecute
+        returns (bool upkeepNeeded, bytes memory performData)
+    {
         bool timePassed = (block.timestamp - s_lastTimeStamp) > i_interval;
+        bool isOpen = s_raffleState == RaffleState.OPEN;
+        bool hasPlayers = s_players.length > 0;
+        bool hasBalance = address(this).balance > 0;
+        upkeepNeeded = timePassed && isOpen && hasPlayers && hasBalance;
 
-        if (!timePassed) {
+        return (upkeepNeeded, "0x0");
+    }
+
+    function performUpkeep(bytes calldata) external override {
+        (bool upkeepNeeded, ) = checkUpkeep("");
+        if (!upkeepNeeded) {
             revert Raffle__UpkeepNotNeeded(
                 address(this).balance,
                 s_players.length,
